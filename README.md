@@ -55,7 +55,7 @@ This project is an interactive chatbot application that integrates the OpenAI AP
 ## Setting Up the Frontend:
 1. Navigate to the frontend directory.
    ```sh
-   cd ../frontend
+   cd ../vitefrontend
    
 2. Install the required packages.
    ```sh
