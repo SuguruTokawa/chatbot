@@ -59,7 +59,7 @@ This project is an interactive chatbot application that integrates the OpenAI AP
    
 2. Install the required packages.
    ```sh
-   npm create vite@latest vitefrontend -- --template react-ts
+   npm install
    npm install axios
    npm install dotenv
 
