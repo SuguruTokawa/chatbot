@@ -23,11 +23,11 @@ This project is an interactive chatbot application that integrates the OpenAI AP
 
 1. Clone this repository.
    ```sh
-   git clone [Repository-URL]
+   git clone [[Repository-URL]](https://github.com/SuguruTokawa/chatbot.git)
 
 2. Navigate to the cloned repository's directory.
    ```sh
-   cd [Repository-Name]
+   cd [Repository-Name](chatbot)
 
 ## Setting Up the Backend:
 1. Navigate to the backend directory.
