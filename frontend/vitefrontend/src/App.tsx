@@ -1,34 +1,39 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { sendPromptToBackend, startNewSession, getPredefinedPrompts } from './api';
-import './App.css';
+import React, { useState, useEffect, useRef } from 'react'; // Importing necessary hooks and components from React
+import { sendPromptToBackend, startNewSession, getPredefinedPrompts } from './api'; // Importing API functions
+import './App.css'; // Importing CSS for the App
 
+// Defining the type for a conversation entry
 type ConversationEntry = {
-  role: 'user' | 'assistant' | 'system';
-  prompt?: string;
-  response?: string;
-  content?: string;
+  role: 'user' | 'assistant' | 'system'; // Role can be 'user', 'assistant', or 'system'
+  prompt?: string; // The prompt from the user
+  response?: string; // The response from the assistant
+  content?: string; // The content from the system
 };
 
 function App() {
-  const [prompt, setPrompt] = useState('');
-  const [selectedPredefinedPrompt, setSelectedPredefinedPrompt] = useState('');
-  const [conversation, setConversation] = useState<ConversationEntry[]>([
+  // State variables for the App
+  const [prompt, setPrompt] = useState(''); // The current prompt
+  const [selectedPredefinedPrompt, setSelectedPredefinedPrompt] = useState(''); // The selected predefined prompt
+  const [conversation, setConversation] = useState<ConversationEntry[]>([ // The conversation history
     { role: 'system', content: 'Willkommen zu meinem Chatbot.' }
   ]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [predefinedPrompts, setPredefinedPrompts] = useState<string[]>([]);
-  const chatContainerRef = useRef<HTMLDivElement>(null);
+  const [isLoading, setIsLoading] = useState(false); // Loading state
+  const [predefinedPrompts, setPredefinedPrompts] = useState<string[]>([]); // Predefined prompts
+  const chatContainerRef = useRef<HTMLDivElement>(null); // Reference to the chat container
 
+  // Fetch predefined prompts when the component mounts
   useEffect(() => {
     getPredefinedPrompts().then(setPredefinedPrompts);
   }, []);
 
+  // Scroll to the bottom of the chat container whenever the conversation changes
   useEffect(() => {
     if (chatContainerRef.current) {
       chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
     }
   }, [conversation]);
 
+  // Function to handle sending a prompt
   const handleSendPrompt = async () => {
     const userEntry: ConversationEntry = { role: 'user', prompt };
     setConversation([...conversation, userEntry]);
@@ -49,17 +54,20 @@ function App() {
     setSelectedPredefinedPrompt('');
   };
 
+  // Function to handle starting a new session
   const handleNewSession = async () => {
     await startNewSession();
     setConversation([{ role: 'system', content: 'Neue Session gestartet.' }]);
   };
 
+  // Function to handle selecting a predefined prompt
   const handleSelectPredefinedPrompt = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedPrompt = e.target.value;
     setSelectedPredefinedPrompt(selectedPrompt);
     setPrompt(selectedPrompt);
   };
 
+  // The JSX for the App
   return (
     <div className="main-container">
       <header>
@@ -103,4 +111,4 @@ function App() {
   );
 }
 
-export default App;
+export default App; // Exporting the App component

@@ -1,10 +1,10 @@
-// Importiere das Axios-Modul
+// Import the Axios module
 import axios from 'axios';
 
-// Setze die Basis-URL für Axios
+// Set the base URL for Axios
 const BASE_URL = import.meta.env.REACT_APP_BACKEND_URL || 'http://localhost:3001';
 
-// Funktion, um das Benutzer-Prompt an das Backend zu senden
+// Function to send the user prompt to the backend
 export const sendPromptToBackend = async (prompt) => {
   try {
     const response = await axios.post(`${BASE_URL}/api/openai`, { prompt });
@@ -15,7 +15,7 @@ export const sendPromptToBackend = async (prompt) => {
   }
 };
 
-// Funktion zum Starten einer neuen Session
+// Function to start a new session
 export const startNewSession = async () => {
   try {
     const response = await axios.post(`${BASE_URL}/api/new-session`);
@@ -26,7 +26,7 @@ export const startNewSession = async () => {
   }
 };
 
-// Funktion, um die vordefinierten Prompts vom Backend zu erhalten
+// Function to get the predefined prompts from the backend
 export const getPredefinedPrompts = async () => {
   try {
     const response = await axios.get(`${BASE_URL}/api/predefined-prompts`);
