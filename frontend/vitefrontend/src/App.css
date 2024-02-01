@@ -1,0 +1,106 @@
+/* Styling for the header */
+header {
+  background-color: #20a1cd; /* Dark grey background */
+  color: white; /* White text */
+  padding: 10px; /* Padding around the text */
+  text-align: center; /* Center the text */
+  border-radius: 10px; /* Rounded corners */
+  margin: 5px; /* Space below the header */
+}
+
+/* Styling for the chat output area */
+.chat-output {
+  height: 300px; /* Fixed height */
+  overflow-y: overlay; /* Add a scrollbar when necessary */
+  border: 1px solid #ccc; /* Grey border */
+  padding: 10px; /* Padding inside the box */
+  border-radius: 10px; /* Rounded corners */
+  background-color: #3b3b3b;
+  scroll-behavior: smooth;
+}
+
+/* Styling for the dropdown menu */
+.dropdown-menu {
+  width: 100%; /* Full width */
+  margin: 5px; /* Space above and below */
+}
+
+/* Styling for each chat message */
+.chat-message {
+  margin-bottom: 15px; /* Space below each message */
+}
+
+/* Styling for the chat input area */
+.chat-input {
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Space out the children evenly */
+  align-items: flex-start; /* Align children to the start of the cross axis */
+  margin-bottom: 5px;
+}
+
+/* Styling for the chat input textarea */
+.chat-input textarea {
+  width: 80%; /* Take up 80% of the parent's width */
+  height: 16vh; /* Height relative to the viewport */
+  padding: 10px; /* Padding inside the textarea */
+  border-radius: 10px; /* Rounded corners */
+  resize: none; /* Don't allow the user to resize the textarea */
+}
+
+/* Styling for the chat input buttons */
+.chat-input-buttons {
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Stack the children vertically */
+  width: 20%; /* Take up 20% of the parent's width */
+  margin-left: 2%; /* Space to the left */
+}
+
+/* Styling for the send button */
+.send-button {
+  background-color: #20a1cd;
+  color: white; /* White text */
+  padding: 10px; /* Padding around the text */
+  border-radius: 10px; /* Rounded corners */
+  width: 100%; /* Full width */
+  margin-bottom: 10px; /* Space below */
+}
+
+/* Styling for the new session button */
+.new-session-button {
+  background-color: #20a1cd;
+  color: white; /* White text */
+  padding: 10px; /* Padding around the text */
+  border-radius: 10px; /* Rounded corners */
+  width: 100%; /* Full width */
+}
+
+/* Styling for the loading message */
+.chat-message.loading {
+  color: #999;
+  font-style: italic;
+}
+
+/* Transparent Scrollbar */
+.chat-output::-webkit-scrollbar {
+  width: 10px;
+}
+
+.chat-output::-webkit-scrollbar-track {
+  background: transparent; 
+}
+
+.chat-output::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 10px;
+}
+
+.chat-output::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+/* Styling for smaller screens */
+@media (max-width: 600px) {
+  .chat-output, .chat-input textarea, .chat-input button {
+    width: 100%; /* Full width */
+  }
+}
