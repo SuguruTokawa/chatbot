@@ -1,3 +1,0 @@
-curl -X POST http://localhost:3001/api/openai \
--H "Content-Type: application/json" \
--d '{"prompt":"Can you give me a recommended Movie list please?"}'
